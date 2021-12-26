@@ -88,6 +88,15 @@ async function run() {
           res.json(doctors);
         })
 
+
+        app.get('/users', async(req, res) => {
+          const cursor = usersCollection.find({});
+          const user = await cursor.toArray();
+          res.json(user);
+        })
+
+
+
         app.post('/doctors', async(req, res) => {
           const name = req.body.name;
           const email = req.body.email;
